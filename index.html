@@ -143,3 +143,55 @@
         </div>
       </a>
     </div> -->
+
+  </div>
+
+  <div id="tooltip"
+    class="fixed border border-gray-600 text-gray-600 bg-gray-50 px-2 py-1 text-xs pointer-events-none opacity-0 transition-opacity duration-200 font-mono z-50">
+    copy</div>
+
+  <script>
+    const tooltip = document.getElementById('tooltip');
+    const email = document.getElementById('email');
+    const mathlete = document.getElementById('mathlete');
+
+    // Replace this with your actual email address
+    const actualEmail = 'kk5241@nyu.edu';
+
+    if (email) {
+      email.addEventListener('mousemove', (e) => {
+        tooltip.style.opacity = '1';
+        tooltip.style.left = (e.clientX + 10) + 'px';
+        tooltip.style.top = (e.clientY + 10) + 'px';
+        tooltip.textContent = 'copy';
+      });
+
+      email.addEventListener('mouseleave', () => {
+        tooltip.style.opacity = '0';
+        tooltip.textContent = 'copy';
+      });
+
+      email.addEventListener('click', function () {
+        navigator.clipboard.writeText(actualEmail);
+        tooltip.textContent = 'copied!';
+        setTimeout(() => {
+          tooltip.textContent = 'copy';
+        }, 1000);
+      });
+    }
+
+    if (mathlete) {
+      mathlete.addEventListener('mousemove', (e) => { 
+        tooltip.style.opacity = '1';
+        tooltip.style.left = (e.clientX + 10) + 'px';
+        tooltip.style.top = (e.clientY + 10) + 'px';
+        tooltip.innerHTML = '• 2x AIME Qualifier<br>• 4th Nationally @ uWaterloo Cayley<br>• Silver Honours @ Asia IMO<br>• 0/120 on Putnam 2024 (haha)';
+      });
+
+      mathlete.addEventListener('mouseleave', () => {
+        tooltip.style.opacity = '0';
+      });
+    }
+  </script>
+</body>
+</html>
