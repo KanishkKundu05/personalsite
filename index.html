@@ -181,7 +181,7 @@
     }
 
     if (mathlete) {
-      mathlete.addEventListener('mousemove', (e) => { 
+      mathlete.addEventListener('mousemove', (e) => {
         tooltip.style.opacity = '1';
         tooltip.style.left = (e.clientX + 10) + 'px';
         tooltip.style.top = (e.clientY + 10) + 'px';
@@ -191,7 +191,23 @@
       mathlete.addEventListener('mouseleave', () => {
         tooltip.style.opacity = '0';
       });
+
+      // Handle mobile tap - show tooltip on click
+      mathlete.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tooltip.style.opacity = '1';
+        tooltip.style.left = (e.clientX + 10) + 'px';
+        tooltip.style.top = (e.clientY + 10) + 'px';
+        tooltip.innerHTML = '• 2x AIME Qualifier<br>• 4th Nationally @ uWaterloo Cayley<br>• Silver Honours @ Asia IMO<br>';
+      });
     }
+
+    // Close tooltip when clicking anywhere else on the page
+    document.addEventListener('click', (e) => {
+      if (e.target !== mathlete && e.target !== email) {
+        tooltip.style.opacity = '0';
+      }
+    });
   </script>
 </body>
 </html>
