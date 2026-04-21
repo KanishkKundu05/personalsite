@@ -1,212 +1,26 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <script src="https://cdn.tailwindcss.com"></script>
   <title>kanishk's webpage</title>
+  <style>
+    :root {
+      color-scheme: only light;
+      --mustard: #c79a14;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--mustard);
+    }
+  </style>
 </head>
-
-
-<body class="flex flex-col items-center text-gray-900 font-mono min-h-[100vh] bg-[#fcfcfa] color-[#121212] ">
-
-  <!-- div for all centered stuff -->
-  <div class="flex flex-col gap-8 max-w-[650px] px-[20px]">
-
-    <!--  for header -->
-    <h1 class="text-2xl font-bold mt-[6rem]">hi, i'm kanishk</h1>
-
-    <!-- div for text -->
-    <div class="flex flex-col gap-6 text-sm">
-
-      <span>
-        I'm a 21 y/o engineer & <span id="mathlete"
-        class="cursor-default underline transition-all duration-500 hover:text-gray-50 hover:bg-gray-900 px-0.5">mathlete</span> @ nyu courant. I love tackling hard problems & tinkering with new technologies.
-      </span>
-
-      <span>
-        I spend my days building @ <a rel="noopener noreferrer" target="_blank" href="https://www.verci.com/satellite" class="underline text-gray-900 transition-all duration-500 hover:text-gray-50 hover:bg-gray-600 px-0.5">Verci</a>, collaborating w/ incredible creators.
-      </span>
-
-      <span>
-        I recently:
-        <ul class="list-none pl-4">
-          <!-- <li>STUFF</li> -->
-          <li class="mt-2 list-disc">shipped bugs @ <a rel="noopener noreferrer" target="_blank"
-              href="https://apps.apple.com/us/app/bepresent-screen-time-control/id1644737181"
-              class="underline text-gray-900 transition-all duration-500 hover:text-gray-50 hover:bg-gray-600 px-0.5">BePresent</a>. 150K+ DAU. $5m+ arr.
-          </li>
-          <li class="mt-2 list-disc">contributed to <a rel="noopener noreferrer" target="_blank"
-            href="https://monkeytype.com/"
-            class="underline text-gray-900 transition-all duration-500 hover:text-gray-50 hover:bg-gray-600 px-0.5">monkeytype</a>. I've hit 150+ WPM btw ;).</li>
-          <li class="mt-2 list-disc">launched <a rel="noopener noreferrer" target="_blank"
-            href="https://sixseven.nyc"
-            class="underline text-gray-900 transition-all duration-500 hover:text-gray-50 hover:bg-gray-600 px-0.5">sixseven.nyc</a> to share my (brainrot) digital art.</li>
-          <li class="mt-2 list-disc">built a <a rel="noopener noreferrer" target="_blank"
-            href="https://headcount-dashboard-cyry.vercel.app/"
-            class="underline text-gray-900 transition-all duration-500 hover:text-gray-50 hover:bg-gray-600 px-0.5">dashboard</a> to help founders visualise headcount scenarios.</li>
-        </ul>
-      </span>
-
-      <span>
-        reach out if you're building something cool!
-      </span>
-
-      <span>
-        [<a
-          rel="noopener noreferrer" target="_blank" href="https://x.com/kanishk_k23"
-          class="underline text-gray-900 transition-all duration-500 hover:text-gray-50 hover:bg-gray-600 px-0.5">X</a>]&nbsp;[<a
-          rel="noopener noreferrer" target="_blank" href="https://github.com/kanishkkundu05"
-          class="underline text-gray-900 transition-all duration-500 hover:text-gray-50 hover:bg-gray-600 px-0.5">github</a>]&nbsp;[<span id="email"
-          class="cursor-default underline transition-all duration-500 hover:text-gray-50 hover:bg-gray-900 px-0.5">email</span>]&nbsp;[<a
-          rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/kanishkkundu/"
-          class="underline text-gray-900 transition-all duration-500 hover:text-gray-50 hover:bg-gray-600 px-0.5">linkedin</a>]
-      </span>
-
-    </div>
-
-    <!-- div for blogs -->
-    <!-- <div class="flex flex-col gap-5 mt-2">
-      <h1 class="text-base font-normal">Projects</h1>
-
-      <a href="./web/index.html" rel="noopener noreferrer" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 flex items-start gap-4 rounded-2xl overflow-hidden">
-          <div class="flex-shrink-0 w-32 h-20 border-r border-gray-400">
-            <img src="./public/ai.webp" alt="Teaching GPT-5 to Use a Computer" class="w-full h-full object-cover">
-          </div>
-          <div class="mt-1.5 flex-1 flex flex-col gap-2 py-2.5">
-            <h3 class="m-0 text-base font-normal">Y: an experiment</h3>
-            <p class="m-0 text-sm text-gray-600">taking agency over my life.</p>
-          </div>
-          <div class="py-2.5 pr-2.5 flex-shrink-0 flex flex-col items-end gap-1.5 text-right">
-            <span class="text-xs text-gray-500">December 2025</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="clado/" rel="noopener noreferrer" target="_blank" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 flex items-start gap-4 rounded-2xl overflow-hidden">
-          <div class="flex-shrink-0 w-32 h-20 border-r border-gray-400">
-            <img src="./public/clado.png" alt="Den" class="w-full h-full object-cover">
-          </div>
-          <div class="mt-1.5 flex-1 flex flex-col gap-2 py-2.5">
-            <h3 class="m-0 text-base font-normal">Sentry</h3>
-            <p class="m-0 text-sm text-gray-600">building an AI FDE to handle edge cases.</p>
-          </div>
-          <div class="py-2.5 pr-2.5 flex-shrink-0 flex flex-col items-end gap-1.5 text-right">
-            <span class="text-xs text-gray-500">October 2025</span>
-          </div>
-        </div>
-      </a>
-
-    </div> -->
-    <!-- <div class="flex flex-col gap-5 mt-2 mb-12">
-      <h1 class="text-base font-normal">Mobile Dev & Design</h1>
-
-
-      <a href="headspace/" rel="noopener noreferrer" target="_blank" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 flex items-start gap-4 rounded-2xl overflow-hidden">
-          <div class="flex-shrink-0 w-32 h-20 border-r border-gray-400">
-            <img src="./public/mind.png" alt="headspace" class="w-full h-full object-cover">
-          </div>
-          <div class="mt-1.5 flex-1 flex flex-col gap-2 py-2.5">
-            <h3 class="m-0 text-base font-normal">Six: mutuals-only social app </h3>
-            <p class="m-0 text-sm text-gray-600">agent that breaks the ice.</p>
-          </div>
-          <div class="py-2.5 pr-2.5 flex-shrink-0 flex flex-col items-end gap-1.5 text-right">
-            <span class="text-xs text-gray-500">December 2025</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="headspace/" rel="noopener noreferrer" target="_blank" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 flex items-start gap-4 rounded-2xl overflow-hidden">
-          <div class="flex-shrink-0 w-32 h-20 border-r border-gray-400">
-            <img src="./public/mind.png" alt="headspace" class="w-full h-full object-cover">
-          </div>
-          <div class="mt-1.5 flex-1 flex flex-col gap-2 py-2.5">
-            <h3 class="m-0 text-base font-normal">BePresent</h3>
-            <p class="m-0 text-sm text-gray-600">gameifying a screentime app.</p>
-          </div>
-          <div class="py-2.5 pr-2.5 flex-shrink-0 flex flex-col items-end gap-1.5 text-right">
-            <span class="text-xs text-gray-500">November 2025</span>
-          </div>
-        </div>
-      </a>
-    </div> -->
-
-  </div>
-
-  <div id="tooltip"
-    class="fixed border border-gray-600 text-gray-600 bg-gray-50 px-2 py-1 text-xs pointer-events-none opacity-0 transition-opacity duration-200 font-mono z-50">
-    copy</div>
-
-  <script>
-    const tooltip = document.getElementById('tooltip');
-    const email = document.getElementById('email');
-    const mathlete = document.getElementById('mathlete');
-
-    // Replace this with your actual email address
-    const actualEmail = 'kk5241@nyu.edu';
-
-    if (email) {
-      email.addEventListener('mousemove', (e) => {
-        tooltip.style.opacity = '1';
-        tooltip.style.left = (e.clientX + 10) + 'px';
-        tooltip.style.top = (e.clientY + 10) + 'px';
-        tooltip.textContent = 'copy';
-      });
-
-      email.addEventListener('mouseleave', () => {
-        tooltip.style.opacity = '0';
-        tooltip.textContent = 'copy';
-      });
-
-      email.addEventListener('click', function () {
-        navigator.clipboard.writeText(actualEmail);
-        tooltip.textContent = 'copied!';
-        setTimeout(() => {
-          tooltip.textContent = 'copy';
-        }, 1000);
-      });
-    }
-
-    if (mathlete) {
-      mathlete.addEventListener('mousemove', (e) => {
-        tooltip.style.opacity = '1';
-        tooltip.style.left = (e.clientX + 10) + 'px';
-        tooltip.style.top = (e.clientY + 10) + 'px';
-        tooltip.innerHTML = '• 2x AIME Qualifier<br>• 4th Nationally @ uWaterloo Cayley<br>• Silver Honours @ Asia IMO<br>';
-      });
-
-      mathlete.addEventListener('mouseleave', () => {
-        tooltip.style.opacity = '0';
-      });
-
-      // Handle mobile tap - show tooltip on click
-      mathlete.addEventListener('click', (e) => {
-        e.stopPropagation();
-        tooltip.style.opacity = '1';
-        tooltip.style.left = (e.clientX + 10) + 'px';
-        tooltip.style.top = (e.clientY + 10) + 'px';
-        tooltip.innerHTML = '• 2x AIME Qualifier<br>• 4th Nationally @ uWaterloo Cayley<br>• Silver Honours @ Asia IMO<br>';
-      });
-    }
-
-    // Close tooltip when clicking anywhere else on the page
-    document.addEventListener('click', (e) => {
-      if (e.target !== mathlete && e.target !== email) {
-        tooltip.style.opacity = '0';
-      }
-    });
-  </script>
-</body>
+<body></body>
 </html>

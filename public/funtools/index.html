@@ -1,203 +1,26 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>kanishk's webpage</title>
+  <title>funtools</title>
   <style>
-    @media (max-width: 640px) {
-      .grid h3,
-      .grid p {
-        display: none;
-      }
+    :root {
+      color-scheme: only light;
+      --mustard: #c79a14;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--mustard);
     }
   </style>
 </head>
-
-
-<body class="flex flex-col items-center text-gray-900 font-mono min-h-[100vh] bg-[#fcfcfa] color-[#121212] ">
-  <!-- div for all centered stuff -->
-  <div class="flex flex-col gap-8 max-w-[650px] px-[20px]">
-    <!-- area for header -->
-    <div class="flex items-center justify-between mt-8 mb-4">
-      <a href="/" class="text-sm text-gray-600 hover:text-gray-900 underline">← back to home</a>
-      <div class="text-xs text-gray-500">Dec 2025</div>
-    </div>
-    <h1 class="text-2xl font-bold mt-[0rem]">tools i use everyday</h1>
-    <!-- div for blogs -->
-      <div class="grid grid-cols-2 gap-5 mt-2">
-      <!-- PastePal Card -->
-      <a href="https://apps.apple.com/us/app/clipboard-manager-pastepal/id1503446680" rel="noopener noreferrer" target="_blank" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 rounded-2xl overflow-hidden p-4 flex flex-col gap-3">
-          <h3 class="m-0 text-base font-normal">PastePal</h3>
-          <div class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-24 h-24">
-              <img src="./logos/pastepal.webp" alt="PastePal" class="w-full h-full object-contain">
-            </div>
-            <div class="flex-1 flex flex-col gap-2">
-              <p class="m-0 text-sm text-gray-600">⌘⇧v to view clipboard history</p>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Klack Card -->
-      <a href="https://tryklack.com/" rel="noopener noreferrer" target="_blank" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 rounded-2xl overflow-hidden p-4 flex flex-col gap-3">
-          <h3 class="m-0 text-base font-normal">Klack</h3>
-          <div class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-24 h-24">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b3/f4/54/b3f45416-1c89-0ee9-13de-123bc8756256/AppIcon-0-0-85-220-0-0-3-0-2x.png/400x400ib-75.webp" alt="Klack" class="w-full h-full object-contain">
-            </div>
-            <div class="flex-1 flex flex-col gap-2">
-              <p class="m-0 text-sm text-gray-600"> Satisfying sound with every keystroke </p>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Raycast Card -->
-      <a href="https://www.raycast.com/" rel="noopener noreferrer" target="_blank" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 rounded-2xl overflow-hidden p-4 flex flex-col gap-3">
-          <h3 class="m-0 text-base font-normal">Raycast</h3>
-          <div class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-24 h-24">
-              <img src="https://developers.raycast.com/~gitbook/image?url=https%3A%2F%2F2922539984-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Me_8A39tFhZg3UaVoSN%252Flogo%252FUl4fyRZ0Fz4KWolj6qK2%252Flogo%2540dark.png%3Falt%3Dmedia%26token%3D0365e72b-4d26-4707-ab25-1abfe5b66112&width=260&dpr=4&quality=100&sign=8dc35d3c&sv=2" alt="Raycast" class="w-full h-full object-contain">
-            </div>
-            <div class="flex-1 flex flex-col gap-2">
-              <p class="m-0 text-sm text-gray-600">MacOS spotlight search sucks</p>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- ExcaliDraw Card -->
-      <a href="https://excalidraw.com/" rel="noopener noreferrer" target="_blank" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 rounded-2xl overflow-hidden p-4 flex flex-col gap-3">
-          <h3 class="m-0 text-base font-normal">ExcaliDraw</h3>
-          <div class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-24 h-24">
-              <img src="./logos/excalidraw.png" alt="ExcaliDraw" class="w-full h-full object-contain">
-            </div>
-            <div class="flex-1 flex flex-col gap-2">
-              <p class="m-0 text-sm text-gray-600">whiteboarding is fun</p>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Ghostty Card -->
-      <a href="https://ghostty.org/" rel="noopener noreferrer" target="_blank" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 rounded-2xl overflow-hidden p-4 flex flex-col gap-3">
-          <h3 class="m-0 text-base font-normal">Ghostty</h3>
-          <div class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-24 h-24">
-              <img src="./logos/ghostty.png" alt="Ghostty" class="w-full h-full object-contain">
-            </div>
-            <div class="flex-1 flex flex-col gap-2">
-              <p class="m-0 text-sm text-gray-600">A better terminal. </p>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://poke.com/" rel="noopener noreferrer" target="_blank" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 rounded-2xl overflow-hidden p-4 flex flex-col gap-3">
-          <h3 class="m-0 text-base font-normal">Poke</h3>
-          <div class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-24 h-24">
-              <img src="https://pbs.twimg.com/profile_images/1876685268322766848/ZUfEgZjJ_400x400.png" alt="Ghostty" class="w-full h-full object-contain">
-            </div>
-            <div class="flex-1 flex flex-col gap-2">
-              <p class="m-0 text-sm text-gray-600">My assistant on imessages</p>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://poke.com/" rel="noopener noreferrer" target="_blank" class="no-underline hover:bg-transparent color-[#121212]">
-        <div class="border border-gray-400 rounded-2xl overflow-hidden p-4 flex flex-col gap-3">
-          <h3 class="m-0 text-base font-normal">Zen</h3>
-          <div class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-24 h-24">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Zen_Browser_logo_%28red_circles%29.svg/2048px-Zen_Browser_logo_%28red_circles%29.svg.png" alt="Ghostty" class="w-full h-full object-contain">
-            </div>
-            <div class="flex-1 flex flex-col gap-2">
-              <p class="m-0 text-sm text-gray-600">my browser of choice</p>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
-
-
-  </div>
-
-  <div id="tooltip"
-    class="fixed border border-gray-600 text-gray-600 bg-gray-50 px-2 py-1 text-xs pointer-events-none opacity-0 transition-opacity duration-200 font-mono">
-    copy</div>
-  <script>
-    const tooltip = document.getElementById('tooltip');
-    const email = document.getElementById('email');
-    const ding = document.getElementById('reading');
-    const mathlete = document.getElementById('mathlete');
-
-    // Replace this with your actual email address
-    const actualEmail = 'kk5241@nyu.edu';
-
-    email.addEventListener('mousemove', (e) => {
-      tooltip.style.opacity = '1';
-      tooltip.style.left = (e.clientX + 10) + 'px';
-      tooltip.style.top = (e.clientY + 10) + 'px';
-      tooltip.textContent = 'copy';
-    });
-
-    email.addEventListener('mouseleave', () => {
-      tooltip.style.opacity = '0';
-      tooltip.textContent = 'copy';
-    });
-
-    email.addEventListener('click', function () {
-      navigator.clipboard.writeText(actualEmail);
-      tooltip.textContent = 'copied!';
-      setTimeout(() => {
-        tooltip.textContent = 'copy';
-      }, 1000);
-    });
-
-    reading.addEventListener('mousemove', (e) => {
-      tooltip.style.opacity = '1';
-      tooltip.style.left = (e.clientX + 10) + 'px';
-      tooltip.style.top = (e.clientY + 10) + 'px';
-      tooltip.innerHTML = '<i>Meditations</i> by Marcus Aurelius';
-    });
-
-    reading.addEventListener('mouseleave', () => {
-      tooltip.style.opacity = '0';
-    });
-
-    mathlete.addEventListener('mousemove', (e) => { 
-      tooltip.style.opacity = '1';
-      tooltip.style.left = (e.clientX + 10) + 'px';
-      tooltip.style.top = (e.clientY + 10) + 'px';
-      tooltip.innerHTML = '• 2x AIME Qualifier<br>• 4th Nationally @ uWaterloo Cayley<br>• Silver Honours @ Asia IMO<br>• 0/120 on Putnam 2024 (haha)';
-    });
-
-    mathlete.addEventListener('mouseleave', () => {
-      tooltip.style.opacity = '0';
-    });
-  </script>
-</body>
-
+<body></body>
 </html>
