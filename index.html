@@ -8,9 +8,18 @@
   <meta name="msapplication-TileColor" content="#000000">
   <title>kanishk's webpage</title>
   <style>
+    @font-face {
+      font-family: "Berkeley Mono";
+      src: url("/fonts/BerkeleyMono-Bold.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       color-scheme: only dark;
       --black: #000000;
+      --white: #ffffff;
     }
 
     * {
@@ -20,10 +29,28 @@
     html,
     body {
       margin: 0;
-      min-height: 100%;
+      min-height: 100vh;
       background: var(--black);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-family: "Berkeley Mono", monospace;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 1rem;
+      font-size: clamp(2rem, 8vw, 6rem);
+      line-height: 1.05;
+      text-align: center;
+      text-decoration: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.14em;
     }
   </style>
 </head>
-<body></body>
+<body>
+  <h1>Hi, I'm Kanishk Kundu</h1>
+</body>
 </html>
