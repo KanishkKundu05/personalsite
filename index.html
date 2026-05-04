@@ -468,17 +468,22 @@
       }
 
       .story-body {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+        display: grid;
+        row-gap: 0.95rem;
         margin: 1.35rem 0 0;
       }
 
       .story-images {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
         width: 100%;
+      }
+
+      .story-images,
+      .story-copy,
+      .story-image-row,
+      .story-tattoo-verci-row,
+      .story-bepresent-cheat-row,
+      .story-image-row--tattoos {
+        display: contents;
       }
 
       .story-image,
@@ -503,31 +508,105 @@
         object-fit: contain;
       }
 
-      .story-image-row,
-      .story-tattoo-verci-row,
-      .story-bepresent-cheat-row {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 1rem;
-        width: 100%;
-        height: auto;
-        margin: 0;
-      }
-
-      .story-image-row--tattoos {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-      }
-
       .story-copy {
         width: 100%;
         margin: 0;
       }
 
       .story-copy p + p {
-        margin-top: 0.95lh;
+        margin-top: 0;
+      }
+
+      .story-copy p {
+        margin-bottom: 1rem;
+      }
+
+      .story-copy p:last-child {
+        margin-bottom: 0;
+      }
+
+      .story-image--tattoo-secondary {
+        display: none;
+      }
+
+      .story-image--yea {
+        order: 1;
+      }
+
+      .story-copy p:nth-child(1) {
+        order: 2;
+      }
+
+      .story-copy p:nth-child(2) {
+        order: 3;
+      }
+
+      .story-image--ipad {
+        order: 4;
+      }
+
+      .story-copy p:nth-child(3) {
+        order: 5;
+      }
+
+      .story-image--whatsapp {
+        order: 6;
+      }
+
+      .story-copy p:nth-child(4) {
+        order: 7;
+      }
+
+      .story-image--poker {
+        order: 8;
+      }
+
+      .story-copy p:nth-child(5) {
+        order: 9;
+      }
+
+      .story-image--atlas {
+        order: 10;
+      }
+
+      .story-copy p:nth-child(6) {
+        order: 11;
+      }
+
+      .story-image--tattoo-primary {
+        order: 12;
+      }
+
+      .story-copy p:nth-child(7) {
+        order: 13;
+      }
+
+      .story-image--tattoo-secondary {
+        order: 14;
+      }
+
+      .story-image--verci-primary {
+        order: 15;
+      }
+
+      .story-copy p:nth-child(8) {
+        order: 16;
+      }
+
+      .story-image--bepresent {
+        order: 17;
+      }
+
+      .story-copy p:nth-child(9) {
+        order: 18;
+      }
+
+      .story-image--cheatnyu {
+        order: 19;
+      }
+
+      .story-copy p:nth-child(10) {
+        order: 20;
       }
     }
   </style>
