@@ -25,6 +25,15 @@
       --caption-width: 18.5ch;
       --caption-copy-size: calc(var(--caption-font-size) * 1.5);
       --arrival-gap: 0.045rem;
+      --arrival-width: min(clamp(15.6rem, 31.2vw, 23.4rem), calc(100vw - (100% + var(--caption-gap) + var(--caption-width) + var(--arrival-gap)) - 0.25rem));
+      --arrival-cropped-height: clamp(18.72rem, 37.44vw, 28.08rem);
+      --story-image-width: min(15.12rem, 29.52vw);
+      --story-yea-base-width: min(29.59rem, 57.78vw);
+      --story-yea-width: var(--story-yea-base-width);
+      --story-yea-left-shift: 0;
+      --story-ipad-width: min(28.57rem, 55.79vw);
+      --story-ipad-offset: calc(var(--story-ipad-width) * 0.375);
+      --story-image-stack-width: max(var(--story-yea-base-width), calc(var(--story-ipad-width) + var(--story-ipad-offset)));
     }
 
     * {
@@ -73,16 +82,22 @@
       clip-path: inset(0 10% 0 17%);
     }
 
-    .arrival-photo {
+    .arrival-frame {
       position: absolute;
       left: calc(100% + var(--caption-gap) + var(--caption-width) + var(--arrival-gap));
       top: 85%;
       font-size: var(--caption-copy-size);
       font-family: "adobe-garamond-pro", Georgia, serif;
-      width: min(clamp(15.6rem, 31.2vw, 23.4rem), calc(100vw - (100% + var(--caption-gap) + var(--caption-width) + var(--arrival-gap)) - 0.25rem));
+      width: var(--arrival-width);
+      height: var(--arrival-cropped-height);
+      overflow: hidden;
+      transform: translateX(-8%);
+    }
+
+    .arrival-photo {
+      width: 100%;
       height: auto;
       display: block;
-      transform: translateX(-8%);
     }
 
     .caption-group {
@@ -105,6 +120,75 @@
     .caption + .caption {
       margin-top: 1.512lh;
     }
+
+    .story-section {
+      position: absolute;
+      left: -20%;
+      top: calc(85% + var(--arrival-cropped-height) - 5.1rem);
+      width: max-content;
+    }
+
+    .story-heading {
+      margin: 0;
+      color: var(--white);
+      font-family: "adobe-garamond-pro", Georgia, serif;
+      font-size: clamp(1.6rem, 6.4vw, 4.8rem);
+      font-weight: 400;
+      line-height: 0.95;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .story-body {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-top: 2.4rem;
+      margin-left: -8rem;
+    }
+
+    .story-images {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      flex: 0 0 auto;
+      width: var(--story-image-stack-width);
+    }
+
+    .story-image {
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .story-image--yea {
+      width: var(--story-yea-width);
+      margin-left: var(--story-yea-left-shift);
+    }
+
+    .story-image--ipad {
+      width: var(--story-ipad-width);
+      margin-left: var(--story-ipad-offset);
+    }
+
+    .story-copy {
+      margin-top: clamp(4rem, 7.2vw, 6.4rem);
+      margin-left: 2rem;
+      width: min(54rem, 52vw);
+      color: var(--white);
+      font-family: "adobe-garamond-pro", Georgia, serif;
+      font-size: var(--caption-copy-size);
+      font-weight: 400;
+      line-height: 1.42;
+    }
+
+    .story-copy p {
+      margin: 0;
+    }
+
+    .story-copy p + p {
+      margin-top: 1.1lh;
+    }
   </style>
 </head>
 <body>
@@ -116,7 +200,24 @@
         <p class="caption">This is me @ NYU, a few hours after I landed in the US for the first time in August 2023.</p>
         <p class="caption">TL;DR: I'm from Mumbai, India. 21 y/o. And I've been building software since I was 14. Some of it is useful; most of it is silly.</p>
       </div>
-      <img class="arrival-photo" src="./images/airport-arrival.jpg" alt="Kanishk and his mother with luggage at the airport">
+      <div class="arrival-frame">
+        <img class="arrival-photo" src="./images/airport-arrival.jpg" alt="Kanishk and his mother with luggage at the airport">
+      </div>
+      <div class="story-section">
+        <h2 class="story-heading">Here's the longer story:</h2>
+        <div class="story-body">
+          <div class="story-images">
+            <img class="story-image story-image--yea" src="./YEA.jpg" alt="Kanishk at a Young Entrepreneurs Academy event">
+            <img class="story-image story-image--ipad" src="./ipad.jpg" alt="An iPad displaying software">
+          </div>
+          <div class="story-copy">
+            <p>My dad gifted me my first device, an iPad, on my 11th birthday. I was then addicted to Clash of Clans for 3 years.</p>
+            <p>I used the iPad to earn my first internet $ at 14 by writing 'SEO optimized' (lol) wordpress articles on freelancer.com.</p>
+
+            <p>At 15, I entered an after-school entrepreneurship program. I didnt have an idea so I built websites for everyone around me who did. I won the competition & recieved a Rs. 20,000 (~$250) investment from Namita Thapar. I blew it on my first pair of jordans.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 </body>
