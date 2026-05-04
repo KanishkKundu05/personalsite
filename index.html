@@ -302,6 +302,24 @@
       text-underline-offset: 0.12em;
     }
 
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin: 2.5rem 0 4rem;
+      color: var(--white);
+      font-family: "Berkeley Mono", monospace;
+      font-size: clamp(1rem, 1.6vw, 1.5rem);
+      font-weight: 700;
+    }
+
+    .social-links a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.14em;
+    }
+
     @media (min-width: 761px) and (max-width: 1680px) {
       :root {
         --caption-gap: clamp(0.85rem, 1.2vw, 1.875rem);
@@ -608,6 +626,12 @@
       .story-copy p:nth-child(10) {
         order: 20;
       }
+
+      .social-links {
+        gap: 1rem;
+        margin: 2.25rem 0 0;
+        font-size: clamp(1rem, 5vw, 1.35rem);
+      }
     }
   </style>
 </head>
@@ -661,6 +685,10 @@
               <p>I missed an important meeting one day because I had to turn in a handwritten assignment. Frustrated, I decided to start building <a href="https://cheatnyu.com/">cheatnyu.com</a>.</p>
           </div>
         </div>
+        <nav class="social-links" aria-label="Social links">
+          <a href="https://x.com/kanishk_k23">X</a>
+          <a href="https://github.com/KanishkKundu05">GitHub</a>
+        </nav>
       </div>
     </div>
   </main>
