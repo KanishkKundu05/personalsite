@@ -46,6 +46,8 @@
       --story-bepresent-width: var(--story-tattoo-width);
       --story-cheatnyu-width: calc(var(--story-atlas-right-edge) - var(--story-bepresent-width) - 1rem);
       --story-image-stack-width: max(var(--story-image-base-stack-width), var(--story-atlas-right-edge));
+      --story-copy-width: min(54rem, 52vw);
+      --story-copy-font-size: var(--caption-copy-size);
     }
 
     * {
@@ -278,10 +280,10 @@
     .story-copy {
       margin-top: clamp(4rem, 7.2vw, 6.4rem);
       margin-left: 2rem;
-      width: min(54rem, 52vw);
+      width: var(--story-copy-width);
       color: var(--white);
       font-family: "adobe-garamond-pro", Georgia, serif;
-      font-size: var(--caption-copy-size);
+      font-size: var(--story-copy-font-size);
       font-weight: 400;
       line-height: 1.42;
     }
@@ -310,6 +312,7 @@
         --story-yea-base-width: min(25rem, 32vw);
         --story-ipad-width: min(24rem, 31vw);
         --story-atlas-right-edge: calc(var(--story-poker-width) + 2rem + var(--story-atlas-width));
+        --story-copy-width: clamp(28rem, 46vw, 46rem);
       }
 
       html,
@@ -346,7 +349,7 @@
 
       .story-body {
         gap: clamp(1rem, 1.5vw, 2rem);
-        margin-left: 0;
+        margin-left: clamp(-11.5rem, -10vw, -6rem);
       }
 
       .story-images {
@@ -366,8 +369,7 @@
       }
 
       .story-copy {
-        width: min(32rem, 32vw);
-        margin-left: clamp(1rem, 1.4vw, 2rem);
+        margin-left: clamp(0.5rem, 0.9vw, 1.25rem);
       }
     }
 
@@ -375,7 +377,13 @@
       :root {
         --caption-width: 14ch;
         --arrival-width: min(clamp(8rem, 20vw, 12rem), calc(100vw - (100% + var(--caption-gap) + var(--caption-width) + var(--arrival-gap)) - 1rem));
+        --story-copy-width: clamp(21rem, 37vw, 28rem);
       }
+
+      .story-body {
+        margin-left: clamp(-2.25rem, -2.5vw, -1rem);
+      }
+
     }
 
     @media (max-width: 760px) {
@@ -561,7 +569,7 @@
             </div>
           </div>
           <div class="story-copy">
-            <p>My dad gifted me my first device, an iPad, on my 11th birthday. I was then addicted to Clash of Clans for 3 years.</p>
+            <p>My dad gifted me my first device, an iPad, on my 11th birthday. I spent the next 3 years addicted to Clash of Clans.</p>
             <p>I used the iPad to earn my first internet $ at 14 by writing 'SEO optimized' (lol) wordpress articles on freelancer.com.</p>
 
             <p>At 15, I entered an entrepreneurship competition. I didnt have an idea so I built websites for everyone around me who did. I won & recieved a Rs. 20,000 (~$250) investment from Namita Thapar. I blew it on my first pair of jordans.</p>
@@ -577,5 +585,104 @@
       </div>
     </div>
   </main>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const copy = document.querySelector(".story-copy");
+      const images = document.querySelector(".story-images");
+      const desktopQuery = window.matchMedia("(min-width: 761px)");
+      let rafId = 0;
+
+      const resetFit = () => {
+        root.style.removeProperty("--story-copy-width");
+        root.style.removeProperty("--story-copy-font-size");
+      };
+
+      const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+      const setFit = (width, fontSize) => {
+        root.style.setProperty("--story-copy-width", `${width}px`);
+        root.style.setProperty("--story-copy-font-size", `${fontSize}px`);
+      };
+
+      const fitStoryCopy = () => {
+        rafId = 0;
+
+        if (!copy || !images || !desktopQuery.matches) {
+          resetFit();
+          return;
+        }
+
+        resetFit();
+
+        const copyRect = copy.getBoundingClientRect();
+        const imagesRect = images.getBoundingClientRect();
+        const targetHeight = imagesRect.bottom - copyRect.top;
+
+        if (targetHeight <= 0) {
+          return;
+        }
+
+        const baseStyle = window.getComputedStyle(copy);
+        const baseFontSize = parseFloat(baseStyle.fontSize);
+        const edgePadding = window.innerWidth >= 1200 ? 40 : 20;
+        const availableWidth = Math.max(280, window.innerWidth - copyRect.left - edgePadding);
+        const defaultWidth = copyRect.width;
+        const wideWidth = clamp(Math.max(defaultWidth, availableWidth * 0.96), 280, availableWidth);
+        const narrowWidth = clamp(Math.min(defaultWidth, availableWidth * 0.68), 280, wideWidth);
+        const smallFontSize = clamp(baseFontSize * 0.84, 18, baseFontSize);
+        const largeFontSize = clamp(baseFontSize * 1.08, baseFontSize, 42);
+        let low = 0;
+        let high = 1;
+        let bestWidth = defaultWidth;
+        let bestFontSize = baseFontSize;
+        let bestDelta = Number.POSITIVE_INFINITY;
+
+        for (let i = 0; i < 24; i += 1) {
+          const progress = (low + high) / 2;
+          const width = wideWidth + (narrowWidth - wideWidth) * progress;
+          const fontSize = smallFontSize + (largeFontSize - smallFontSize) * progress;
+          setFit(width, fontSize);
+
+          const height = copy.getBoundingClientRect().height;
+          const delta = Math.abs(height - targetHeight);
+
+          if (delta < bestDelta) {
+            bestDelta = delta;
+            bestWidth = width;
+            bestFontSize = fontSize;
+          }
+
+          if (height < targetHeight) {
+            low = progress;
+          } else {
+            high = progress;
+          }
+        }
+
+        setFit(bestWidth, bestFontSize);
+      };
+
+      const scheduleFit = () => {
+        if (rafId) {
+          window.cancelAnimationFrame(rafId);
+        }
+
+        rafId = window.requestAnimationFrame(fitStoryCopy);
+      };
+
+      window.addEventListener("resize", scheduleFit);
+      window.addEventListener("load", scheduleFit);
+      document.fonts?.ready.then(scheduleFit);
+
+      for (const image of images?.querySelectorAll("img") ?? []) {
+        if (!image.complete) {
+          image.addEventListener("load", scheduleFit, { once: true });
+        }
+      }
+
+      scheduleFit();
+    })();
+  </script>
 </body>
 </html>
