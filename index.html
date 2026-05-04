@@ -55,6 +55,7 @@
     html,
     body {
       margin: 0;
+      width: 100%;
       min-height: 100vh;
       padding: 7rem 0 0 2.25rem;
       background: var(--black);
@@ -63,6 +64,10 @@
       place-items: start;
       font-family: "Berkeley Mono", monospace;
       font-weight: 700;
+    }
+
+    img {
+      max-width: 100%;
     }
 
     .hero {
@@ -293,6 +298,229 @@
       color: inherit;
       text-decoration: underline;
       text-underline-offset: 0.12em;
+    }
+
+    @media (min-width: 761px) and (max-width: 1680px) {
+      :root {
+        --caption-gap: clamp(0.85rem, 1.2vw, 1.875rem);
+        --caption-font-size: clamp(0.95rem, 1.35vw, 1.5rem);
+        --caption-width: 17ch;
+        --arrival-width: min(clamp(10rem, 22vw, 20rem), calc(100vw - (100% + var(--caption-gap) + var(--caption-width) + var(--arrival-gap)) - 1rem));
+        --arrival-cropped-height: clamp(14rem, 28vw, 24rem);
+        --story-yea-base-width: min(25rem, 32vw);
+        --story-ipad-width: min(24rem, 31vw);
+        --story-atlas-right-edge: calc(var(--story-poker-width) + 2rem + var(--story-atlas-width));
+      }
+
+      html,
+      body {
+        padding-left: clamp(0.75rem, 2vw, 2.25rem);
+      }
+
+      h1,
+      .story-heading {
+        font-size: clamp(2.25rem, 5vw, 4.8rem);
+      }
+
+      .story-heading {
+        font-size: clamp(2rem, 3.8vw, 4.8rem);
+      }
+
+      .media {
+        top: calc(100% + clamp(2.5rem, 5vw, 5.3125rem));
+        width: 62%;
+      }
+
+      .caption-group {
+        line-height: 1.42;
+      }
+
+      .caption + .caption {
+        margin-top: 1.15lh;
+      }
+
+      .story-section {
+        left: 0;
+        top: calc(85% + var(--arrival-cropped-height) - clamp(3rem, 4vw, 5.1rem));
+      }
+
+      .story-body {
+        gap: clamp(1rem, 1.5vw, 2rem);
+        margin-left: 0;
+      }
+
+      .story-images {
+        gap: clamp(1rem, 1.5vw, 2rem);
+      }
+
+      .story-image-row {
+        gap: clamp(1rem, 1.4vw, 2rem);
+      }
+
+      .story-tattoo-verci-row {
+        margin-top: clamp(-4rem, -4vw, -2rem);
+      }
+
+      .story-image--atlas {
+        margin-left: clamp(0.75rem, 1vw, 1.5rem);
+      }
+
+      .story-copy {
+        width: min(32rem, 32vw);
+        margin-left: clamp(1rem, 1.4vw, 2rem);
+      }
+    }
+
+    @media (min-width: 761px) and (max-width: 900px) {
+      :root {
+        --caption-width: 14ch;
+        --arrival-width: min(clamp(8rem, 20vw, 12rem), calc(100vw - (100% + var(--caption-gap) + var(--caption-width) + var(--arrival-gap)) - 1rem));
+      }
+    }
+
+    @media (max-width: 760px) {
+      html,
+      body {
+        display: block;
+        min-height: auto;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        width: 100%;
+        max-width: 58rem;
+        margin: 0 auto;
+        padding: clamp(1rem, 4vw, 2rem);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 9vw, 4.8rem);
+        line-height: 1.02;
+        text-align: left;
+      }
+
+      .media,
+      .caption-group,
+      .arrival-frame,
+      .story-section {
+        position: static;
+        inset: auto;
+        width: 100%;
+        max-width: none;
+        transform: none;
+      }
+
+      .media {
+        margin-top: 1.25rem;
+      }
+
+      .media .main-photo {
+        width: 100%;
+        clip-path: none;
+        transform: none;
+      }
+
+      .caption-group,
+      .story-copy {
+        color: var(--white);
+        font-family: "adobe-garamond-pro", Georgia, serif;
+        font-size: clamp(1.25rem, 5.4vw, 1.65rem);
+        font-weight: 400;
+        line-height: 1.38;
+      }
+
+      .caption-group {
+        margin-top: 1.2rem;
+      }
+
+      .caption + .caption {
+        margin-top: 0.9lh;
+      }
+
+      .arrival-frame {
+        height: auto;
+        margin-top: 1.4rem;
+        overflow: visible;
+      }
+
+      .arrival-photo {
+        width: 100%;
+      }
+
+      .story-section {
+        margin-top: 2rem;
+      }
+
+      .story-heading {
+        font-size: clamp(2rem, 10vw, 3.25rem);
+        line-height: 1.05;
+        white-space: normal;
+      }
+
+      .story-body {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin: 1.35rem 0 0;
+      }
+
+      .story-images {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+      }
+
+      .story-image,
+      .story-image--yea,
+      .story-image--ipad,
+      .story-image--whatsapp,
+      .story-image--gallery,
+      .story-image--poker,
+      .story-image--atlas,
+      .story-image--tattoo,
+      .story-image--tattoo-primary,
+      .story-image--tattoo-secondary,
+      .story-image--verci-primary,
+      .story-image--bepresent,
+      .story-image--cheatnyu {
+        position: static;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        margin: 0;
+        flex: 0 0 auto;
+        object-fit: contain;
+      }
+
+      .story-image-row,
+      .story-tattoo-verci-row,
+      .story-bepresent-cheat-row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        width: 100%;
+        height: auto;
+        margin: 0;
+      }
+
+      .story-image-row--tattoos {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+      }
+
+      .story-copy {
+        width: 100%;
+        margin: 0;
+      }
+
+      .story-copy p + p {
+        margin-top: 0.95lh;
+      }
     }
   </style>
 </head>
