@@ -20,6 +20,11 @@
       color-scheme: only dark;
       --black: #000000;
       --white: #ffffff;
+      --caption-gap: 1.875rem;
+      --caption-font-size: clamp(1rem, 1.6vw, 1.5rem);
+      --caption-width: 18.5ch;
+      --caption-copy-size: calc(var(--caption-font-size) * 1.5);
+      --arrival-gap: 0.045rem;
     }
 
     * {
@@ -61,23 +66,44 @@
       width: 68.2%;
     }
 
-    .media img {
+    .media .main-photo {
       width: 100%;
       height: auto;
       display: block;
       clip-path: inset(0 10% 0 17%);
     }
 
-    .caption {
+    .arrival-photo {
       position: absolute;
-      left: calc(100% + 1.5rem);
-      top: 0.4rem;
-      margin: 0;
-      width: 27ch;
+      left: calc(100% + var(--caption-gap) + var(--caption-width) + var(--arrival-gap));
+      top: 85%;
+      font-size: var(--caption-copy-size);
+      font-family: "adobe-garamond-pro", Georgia, serif;
+      width: min(clamp(15.6rem, 31.2vw, 23.4rem), calc(100vw - (100% + var(--caption-gap) + var(--caption-width) + var(--arrival-gap)) - 0.25rem));
+      height: auto;
+      display: block;
+      transform: translateX(-8%);
+    }
+
+    .caption-group {
+      position: absolute;
+      left: calc(100% + var(--caption-gap));
+      top: 15%;
+      width: var(--caption-width);
       max-width: none;
       color: var(--white);
-      font-size: clamp(1rem, 1.6vw, 1.5rem);
-      line-height: 1.45;
+      font-size: var(--caption-copy-size);
+      line-height: 1.52;
+      font-family: "adobe-garamond-pro", Georgia, serif;
+      font-weight: 400;
+    }
+
+    .caption {
+      margin: 0;
+    }
+
+    .caption + .caption {
+      margin-top: 1.512lh;
     }
   </style>
 </head>
@@ -85,8 +111,12 @@
   <main class="hero">
     <h1>Hi, I'm Kanishk</h1>
     <div class="media">
-      <img src="./images/IMG_0537%202.jpg" alt="Kanishk holding an ID badge in a store">
-      <p class="caption">This is me @ NYU, a few hours after I landed in the US for the first time in August 2023.</p>
+      <img class="main-photo" src="./images/IMG_0537%202.jpg" alt="Kanishk holding an ID badge in a store">
+      <div class="caption-group">
+        <p class="caption">This is me @ NYU, a few hours after I landed in the US for the first time in August 2023.</p>
+        <p class="caption">TL;DR: I'm from Mumbai, India. 21 y/o. And I've been building software since I was 14. Some of it is useful; most of it is silly.</p>
+      </div>
+      <img class="arrival-photo" src="./images/airport-arrival.jpg" alt="Kanishk and his mother with luggage at the airport">
     </div>
   </main>
 </body>
