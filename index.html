@@ -33,6 +33,7 @@
       --story-yea-left-shift: 0;
       --story-ipad-width: min(28.57rem, 55.79vw);
       --story-ipad-offset: calc(var(--story-ipad-width) * 0.375);
+      --story-whatsapp-width: var(--story-yea-width);
       --story-image-stack-width: max(var(--story-yea-base-width), calc(var(--story-ipad-width) + var(--story-ipad-offset)));
     }
 
@@ -171,6 +172,10 @@
       margin-left: var(--story-ipad-offset);
     }
 
+    .story-image--whatsapp {
+      width: var(--story-whatsapp-width);
+    }
+
     .story-copy {
       margin-top: clamp(4rem, 7.2vw, 6.4rem);
       margin-left: 2rem;
@@ -210,12 +215,14 @@
           <div class="story-images">
             <img class="story-image story-image--yea" src="./YEA.jpg" alt="Kanishk at a Young Entrepreneurs Academy event">
             <img class="story-image story-image--ipad" src="./ipad.jpg" alt="An iPad displaying software">
+            <img class="story-image story-image--whatsapp" src="./images/whatsapp-2026-05-03.jpeg" alt="Kanishk in a personal photo">
           </div>
           <div class="story-copy">
             <p>My dad gifted me my first device, an iPad, on my 11th birthday. I was then addicted to Clash of Clans for 3 years.</p>
             <p>I used the iPad to earn my first internet $ at 14 by writing 'SEO optimized' (lol) wordpress articles on freelancer.com.</p>
 
-            <p>At 15, I entered an after-school entrepreneurship competition. I didnt have an idea so I built websites for everyone around me who did. I won & recieved a Rs. 20,000 (~$250) investment from Namita Thapar. I blew it on my first pair of jordans.</p>
+            <p>At 15, I entered an entrepreneurship competition. I didnt have an idea so I built websites for everyone around me who did. I won & recieved a Rs. 20,000 (~$250) investment from Namita Thapar. I blew it on my first pair of jordans.</p>
+            <p>At 18, I graduated from the most selective HS in India. Qualified for the AIME twice. Got a 1570 on the SAT. Youth wasted; I didnt build anyth cool. I fell in love with math though.</p>
           </div>
         </div>
       </div>
