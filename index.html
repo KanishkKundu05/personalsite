@@ -36,7 +36,16 @@
       --story-whatsapp-width: var(--story-yea-width);
       --story-poker-width: calc(var(--story-yea-width) * 0.45);
       --story-atlas-width: calc(var(--story-yea-width) * 0.7);
-      --story-image-stack-width: max(var(--story-yea-base-width), calc(var(--story-ipad-width) + var(--story-ipad-offset)));
+      --story-image-base-stack-width: max(var(--story-yea-base-width), calc(var(--story-ipad-width) + var(--story-ipad-offset)));
+      --story-tattoo-width: calc((var(--story-image-base-stack-width) - 1rem) / 2);
+      --story-tattoo-primary-height: calc(var(--story-tattoo-width) * 1.3339);
+      --story-tattoo-secondary-width: calc(var(--story-tattoo-width) * 0.67);
+      --story-tattoo-cluster-width: var(--story-tattoo-width);
+      --story-atlas-right-edge: calc(var(--story-poker-width) + 3.5rem + var(--story-atlas-width));
+      --story-verci-width: calc(var(--story-atlas-right-edge) - var(--story-tattoo-cluster-width) - 1rem);
+      --story-bepresent-width: var(--story-tattoo-width);
+      --story-cheatnyu-width: calc(var(--story-atlas-right-edge) - var(--story-bepresent-width) - 1rem);
+      --story-image-stack-width: max(var(--story-image-base-stack-width), var(--story-atlas-right-edge));
     }
 
     * {
@@ -83,6 +92,8 @@
       height: auto;
       display: block;
       clip-path: inset(0 10% 0 17%);
+      transform: scale(1.2);
+      transform-origin: top right;
     }
 
     .arrival-frame {
@@ -190,7 +201,26 @@
     }
 
     .story-image-row--tattoos {
+      position: relative;
+      display: block;
+      width: var(--story-tattoo-cluster-width);
+      height: var(--story-tattoo-primary-height);
+      flex: 0 0 auto;
+    }
+
+    .story-tattoo-verci-row {
+      display: flex;
+      align-items: flex-end;
       gap: 1rem;
+      width: max-content;
+      margin-top: -6rem;
+    }
+
+    .story-bepresent-cheat-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      width: var(--story-atlas-right-edge);
     }
 
     .story-image--poker {
@@ -207,11 +237,37 @@
     }
 
     .story-image--tattoo {
-      width: calc((var(--story-image-stack-width) - 1rem) / 2);
+      width: var(--story-tattoo-width);
     }
 
     .story-image--tattoo-primary {
-      margin-top: -6rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .story-image--tattoo-secondary {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      width: var(--story-tattoo-secondary-width);
+    }
+
+    .story-image--verci-primary {
+      width: var(--story-verci-width);
+      flex: 0 0 auto;
+    }
+
+    .story-image--bepresent {
+      width: var(--story-bepresent-width);
+      flex: 0 0 auto;
+    }
+
+    .story-image--cheatnyu {
+      width: var(--story-cheatnyu-width);
+      flex: 0 0 auto;
     }
 
     .story-copy {
@@ -264,13 +320,17 @@
               <img class="story-image story-image--gallery story-image--poker" src="./images/poker.JPG" alt="Poker photo">
               <img class="story-image story-image--gallery story-image--atlas" src="./images/atlas.jpg" alt="Atlas photo">
             </div>
-            <div class="story-image-row story-image-row--tattoos">
-              <img class="story-image story-image--gallery story-image--tattoo story-image--tattoo-primary" src="./images/tattoo.png" alt="Tattoo photo">
-              <img class="story-image story-image--gallery story-image--tattoo" src="./images/tattoo2.png" alt="Second tattoo photo">
+            <div class="story-tattoo-verci-row">
+              <div class="story-image-row story-image-row--tattoos">
+                <img class="story-image story-image--gallery story-image--tattoo story-image--tattoo-primary" src="./images/tattoo.png" alt="Tattoo photo">
+                <img class="story-image story-image--gallery story-image--tattoo story-image--tattoo-secondary" src="./images/tattoo2.png" alt="Second tattoo photo">
+              </div>
+              <img class="story-image story-image--gallery story-image--verci-primary" src="./images/verci1.jpg" alt="Verci photo">
             </div>
-            <img class="story-image story-image--gallery" src="./images/verci1.jpg" alt="Verci photo">
-            <img class="story-image story-image--gallery" src="./images/verci2.jpg" alt="Second Verci photo">
-            <img class="story-image story-image--gallery" src="./images/bepresent.JPG" alt="Be present photo">
+            <div class="story-bepresent-cheat-row">
+              <img class="story-image story-image--gallery story-image--bepresent" src="./images/bepresent.JPG" alt="Be present photo">
+              <img class="story-image story-image--gallery story-image--cheatnyu" src="./images/cheatnyu.jpg" alt="Android app development setup at the Verci Satellite">
+            </div>
           </div>
           <div class="story-copy">
             <p>My dad gifted me my first device, an iPad, on my 11th birthday. I was then addicted to Clash of Clans for 3 years.</p>
@@ -279,7 +339,11 @@
             <p>At 15, I entered an entrepreneurship competition. I didnt have an idea so I built websites for everyone around me who did. I won & recieved a Rs. 20,000 (~$250) investment from Namita Thapar. I blew it on my first pair of jordans.</p>
             <p>At 18, I graduated from the most selective HS in India. Qualified for the AIME twice. Got a 1570 on the SAT. Youth wasted; I didnt build anyth cool. I fell in love with math though.</p>
               <p>I spent most of freshmen year playing poker & failing exams. School didnt excite. I felt lost for 2 years. </p>
-              <p>Last summer, at 20, I rediscovered my love for building. I co-founded <a href="https://www.atlasagents.ai/landing">Atlas</a> w my closest friends. We snuck into the Phia office on weekends to ship. 
+              <p>Last summer, at 20, I rediscovered my love for building. I co-founded <a href="https://www.atlasagents.ai/landing">Atlas</a> w my closest friends. We snuck into the Phia office on weekends to ship. </p>
+              <p>At the end of the summer, we parted ways. I got my first tattoo. And I decided to 'lock in' on building.</p>
+              <p>I built <a href="https://sentryai.org/">Sentry</a> and shared it at <a href="https://www.verci.com/">Verci</a> -- a coworking space in Flatiron that quickly became my 2nd home.</p>
+              <p>A few months later, I joined <a href="https://www.bepresentapp.com/">BePresent</a>, my first 'job'. I got a desk at the <a href="https://www.verci.com/satellite">Verci satellite</a> for ~60 days and built their <a href="https://play.google.com/store/apps/details?id=com.bepresent.android&amp;hl=en">android app</a>. I learnt to BePresent; stopped doomscrolling &amp; got closer to god.</p>
+              <p>I missed an important meeting one day because I had to turn in a handwritten assignment. Frustrated, I decided to start building <a href="https://cheatnyu.com/">cheatnyu.com</a>.</p>
           </div>
         </div>
       </div>
