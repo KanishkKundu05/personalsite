@@ -95,14 +95,18 @@
         text-align: center;
       }
 
-      .projects-toggle::before {
-        content: ">";
+      .projects-arrow {
         display: inline-block;
+        width: 0.85em;
+        height: 0.85em;
         margin-right: 0.3em;
-        transition: transform 240ms ease;
+        vertical-align: -0.05em;
+        transform-origin: 50% 50%;
+        transform: rotate(0deg);
+        transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
       }
 
-      .projects-toggle[aria-expanded="true"]::before {
+      .projects-toggle[aria-expanded="true"] .projects-arrow {
         transform: rotate(90deg);
       }
 
@@ -141,7 +145,7 @@
 
       @media (prefers-reduced-motion: reduce) {
         .projects-content,
-        .projects-toggle::before {
+        .projects-arrow {
           transition: none;
         }
       }
@@ -165,7 +169,7 @@
       </nav>
       <p class="story-line">u can reach me @ <a href="mailto:kk5241@nyu.edu">kk5241@nyu.edu</a>.</p>
       <div class="projects">
-        <button class="projects-toggle" type="button" aria-expanded="false" aria-controls="project-list">some things i have built this year...</button>
+        <button class="projects-toggle" type="button" aria-expanded="false" aria-controls="project-list"><svg class="projects-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m5 2 6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>some things i have built this year...</button>
         <div class="projects-content" id="project-list" inert>
           <div>
             <ul>
